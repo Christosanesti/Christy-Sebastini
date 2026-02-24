@@ -1,7 +1,7 @@
 export function AboutSection() {
   return (
     <section
-      className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24"
+      className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24"
       aria-labelledby="about-heading"
     >
       <h1
@@ -18,7 +18,7 @@ export function AboutSection() {
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
         Experience
       </h2>
-      <p className="mt-2 text-muted-foreground">
+      <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
         Years of experience across digital design, brand identity, and
         product interfaces. Work spans e‑commerce, editorial, and
         product-led projects with an emphasis on clarity and craft.
@@ -27,7 +27,7 @@ export function AboutSection() {
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
         Sectors
       </h2>
-      <p className="mt-2 text-muted-foreground">
+      <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
         Retail, energy and sustainability, food and nutrition, and
         B2B digital products. Comfortable in regulated and
         multi-stakeholder environments.
@@ -36,7 +36,7 @@ export function AboutSection() {
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
         Professional positioning
       </h2>
-      <p className="mt-2 text-muted-foreground">
+      <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
         Positions design as a bridge between user needs and business
         goals. Advocates for accessible, performant, and maintainable
         digital experiences aligned with brand and product strategy.

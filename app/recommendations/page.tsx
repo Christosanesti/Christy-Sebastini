@@ -1,10 +1,10 @@
 export default function Recommendations() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <h1 className="text-2xl font-semibold text-foreground">
+    <div className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24">
+      <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
         Recommendations
       </h1>
-      <p className="mt-2 text-muted-foreground">
+      <p className="mt-3 text-lg text-muted-foreground sm:text-xl">
         Placeholder content for the recommendations page.
       </p>
     </div>

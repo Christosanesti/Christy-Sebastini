@@ -69,17 +69,30 @@ export function Nav() {
       aria-label="Main navigation"
     >
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-6 px-4 sm:px-6 md:justify-start">
-        {/* Desktop: full nav (md and up) */}
+        {/* Desktop: full nav (md and up) — secondary links + primary CTA */}
         <div className="hidden md:flex md:items-center md:gap-1 md:flex-1">
-          {links.map(({ href, label }) => {
-            const isActive =
-              href === "/" ? pathname === "/" : pathname.startsWith(href);
-            return (
-              <span key={href} className={touchTargetClass}>
-                <NavLink href={href} label={label} isActive={isActive} />
-              </span>
-            );
-          })}
+          {links
+            .filter((l) => l.href !== "/contact")
+            .map(({ href, label }) => {
+              const isActive =
+                href === "/" ? pathname === "/" : pathname.startsWith(href);
+              return (
+                <span key={href} className={touchTargetClass}>
+                  <NavLink href={href} label={label} isActive={isActive} />
+                </span>
+              );
+            })}
+          <span className={cn(touchTargetClass, "ml-auto")}>
+            <Button asChild size="lg" className={touchTargetClass}>
+              <Link
+                href="/contact"
+                aria-label="Go to Contact"
+                className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center"
+              >
+                Contact
+              </Link>
+            </Button>
+          </span>
         </div>
 
         {/* Mobile: hamburger + sheet (below md) */}
@@ -104,29 +117,47 @@ export function Nav() {
               <SheetHeader className="sr-only">
                 <SheetTitle>Main navigation</SheetTitle>
               </SheetHeader>
-              <div className="flex flex-col pt-6">
-                {links.map(({ href, label }) => {
-                  const isActive =
-                    href === "/"
-                      ? pathname === "/"
-                      : pathname.startsWith(href);
-                  return (
-                    <span
-                      key={href}
-                      className={cn(
-                        touchTargetClass,
-                        "w-full justify-start px-4 [&>a]:w-full [&>a]:min-h-[44px] [&>a]:items-center"
-                      )}
+              <div className="flex flex-col gap-0 pt-6">
+                {links
+                  .filter((l) => l.href !== "/contact")
+                  .map(({ href, label }) => {
+                    const isActive =
+                      href === "/"
+                        ? pathname === "/"
+                        : pathname.startsWith(href);
+                    return (
+                      <span
+                        key={href}
+                        className={cn(
+                          touchTargetClass,
+                          "w-full justify-start px-4 [&>a]:w-full [&>a]:min-h-[44px] [&>a]:items-center"
+                        )}
+                      >
+                        <NavLink
+                          href={href}
+                          label={label}
+                          isActive={isActive}
+                          onClick={closeSheet}
+                        />
+                      </span>
+                    );
+                  })}
+                <span
+                  className={cn(
+                    touchTargetClass,
+                    "w-full justify-start px-4 pt-2 [&>a]:min-h-[44px] [&>a]:min-w-[44px]"
+                  )}
+                >
+                  <Button asChild size="lg" className="w-full justify-center">
+                    <Link
+                      href="/contact"
+                      onClick={closeSheet}
+                      aria-label="Go to Contact"
                     >
-                      <NavLink
-                        href={href}
-                        label={label}
-                        isActive={isActive}
-                        onClick={closeSheet}
-                      />
-                    </span>
-                  );
-                })}
+                      Contact
+                    </Link>
+                  </Button>
+                </span>
               </div>
             </SheetContent>
           </Sheet>

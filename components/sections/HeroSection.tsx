@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export function HeroSection() {
   return (
     <section
-      className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24"
+      className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24"
       aria-labelledby="hero-heading"
     >
       <h1

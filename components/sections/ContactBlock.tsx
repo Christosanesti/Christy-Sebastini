@@ -34,16 +34,16 @@ export function ContactBlock() {
 
   return (
     <section
-      className="mx-auto max-w-3xl px-4 py-12 sm:px-6"
+      className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24"
       aria-labelledby="contact-heading"
     >
       <h2
         id="contact-heading"
-        className="text-2xl font-semibold tracking-tight text-foreground"
+        className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
       >
         Get in touch
       </h2>
-      <p className="mt-2 text-muted-foreground">
+      <p className="mt-3 text-muted-foreground">
         Send a message and I&apos;ll get back to you.
       </p>
       <form
