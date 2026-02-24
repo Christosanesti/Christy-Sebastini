@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { startTransition, useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,7 +24,9 @@ export function ContactBlock() {
 
   useEffect(() => {
     if (!state) return;
-    setFieldErrors({ name: undefined, email: undefined, message: undefined });
+    startTransition(() => {
+      setFieldErrors({ name: undefined, email: undefined, message: undefined });
+    });
     if (state.success) {
       toast.success(state.message ?? "Message sent.");
     } else {

@@ -48,12 +48,12 @@ development_status:
   1-5-contact-section-and-contact-path-cta-form-or-link: done
   1-6-responsive-layout-and-touch-friendly-navigation: done
   1-7-design-system-application-reference-tier-visual-system: done
-  1-8-seo-and-shareability-metadata-open-graph: backlog
+  1-8-seo-and-shareability-metadata-open-graph: done
   epic-1-retrospective: optional
 
-  epic-2: backlog
-  2-1-projects-list-page-with-project-cards: backlog
-  2-2-project-detail-page-with-context-role-period-domain: backlog
+  epic-2: in-progress
+  2-1-projects-list-page-with-project-cards: done
+  2-2-project-detail-page-with-context-role-period-domain: review
   2-3-real-project-content-from-assets-integrated: backlog
   epic-2-retrospective: optional
 

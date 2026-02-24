@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { Nav } from "@/components/layout/Nav";
+import { baseUrl, defaultOgImage, siteName } from "@/lib/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +16,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Michelle Portfolio",
-  description: "Professional portfolio for Christy Sebastini",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Christy Sebastini — Designer & Creative Professional",
+    template: "%s | Christy Sebastini",
+  },
+  description:
+    "Professional portfolio for Christy Sebastini — designer and creative professional.",
+  openGraph: {
+    title: "Christy Sebastini — Designer & Creative Professional",
+    description:
+      "Professional portfolio for Christy Sebastini — designer and creative professional.",
+    url: baseUrl,
+    type: "website",
+    siteName,
+    images: [{ url: defaultOgImage, alt: "Christy Sebastini — Portfolio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christy Sebastini — Designer & Creative Professional",
+    description:
+      "Professional portfolio for Christy Sebastini — designer and creative professional.",
+    images: [defaultOgImage],
+  },
 };
 
 export default function RootLayout({

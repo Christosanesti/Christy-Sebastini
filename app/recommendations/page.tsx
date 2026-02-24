@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Recommendations",
+  description:
+    "Recommendations and trust — what others say about working with Christy Sebastini.",
+  path: "/recommendations",
+});
+
 export default function Recommendations() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24">
