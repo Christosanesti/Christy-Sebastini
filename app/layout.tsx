@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <a
           href="#main-content"
-          className="absolute left-4 top-4 z-[100] -translate-y-full rounded bg-primary px-4 py-2 text-primary-foreground outline-none ring-2 ring-ring transition-transform focus:translate-y-0 focus:outline-none"
+          className="fixed inset-x-0 top-0 z-[100] -translate-y-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground opacity-0 transition-[transform,opacity] duration-200 focus-visible:translate-y-0 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
         >
           Skip to main content
         </a>

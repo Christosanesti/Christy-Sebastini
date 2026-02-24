@@ -43,7 +43,7 @@ development_status:
   epic-1: in-progress
   1-1-project-initialization-and-stack-setup: done
   1-2-app-shell-layout-and-route-structure: done
-  1-3-hero-section-with-identity-and-primary-cta: backlog
+  1-3-hero-section-with-identity-and-primary-cta: done
   1-4-about-page-with-profile-experience-and-positioning: backlog
   1-5-contact-section-and-contact-path-cta-form-or-link: backlog
   1-6-responsive-layout-and-touch-friendly-navigation: backlog
