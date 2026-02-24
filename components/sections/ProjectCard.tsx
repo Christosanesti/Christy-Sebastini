@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -9,6 +8,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ProjectThumbnail } from "@/components/sections/ProjectThumbnail";
 import type { Project } from "@/lib/projects";
 import { ArrowRight } from "lucide-react";
 
@@ -25,15 +25,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card className="flex h-full flex-col transition-[transform,box-shadow] duration-200 ease-out hover:shadow-md focus-within:shadow-md motion-reduce:transition-none">
       <CardHeader className="gap-2">
         {thumbnail ? (
-          <div className="relative -mx-6 -mt-6 aspect-video overflow-hidden rounded-t-xl bg-muted">
-            <Image
-              src={thumbnail}
-              alt={`${title} — project thumbnail`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
+          <ProjectThumbnail
+            src={thumbnail}
+            alt={`${title} — project thumbnail`}
+            cardStyle
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         ) : null}
         <CardTitle className="text-xl sm:text-2xl">{title}</CardTitle>
         {meta ? (

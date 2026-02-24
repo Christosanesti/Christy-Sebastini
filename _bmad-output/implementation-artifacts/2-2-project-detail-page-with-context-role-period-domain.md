@@ -1,6 +1,6 @@
 # Story 2.2: Project detail page with context (role, period, domain)
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -132,6 +132,7 @@ No new npm packages required.
 
 - Implemented `app/projects/[slug]/page.tsx`: Server Component; async params (Next 16); getProjectBySlug(slug), notFound() when undefined; generateMetadata with buildMetadata(project title + context); Back to Projects link; semantic article/header/section with h1 and dl/dt/dd for role/period/domain; optional thumbnail with descriptive alt.
 - Implemented `app/projects/[slug]/not-found.tsx`: slug-level 404 with same layout spacing and Back to Projects link. No automated tests (MVP per story); manual verification: build passes, route /projects/[slug] generated.
+- **Code review (AI) fixes applied:** (1) generateMetadata now returns explicit title/description when project not found (404 metadata). (2) not-found Back link styling aligned with detail page (text-muted-foreground, transition-colors, hover:text-foreground). (3) Breadcrumb → Back navigation aria-label. (4) Removed unused data-context from context paragraph.
 
 ### File List
 
@@ -143,3 +144,4 @@ No new npm packages required.
 ## Change Log
 
 - 2026-02-24: Story 2.2 implementation complete. Added project detail route and page; metadata and not-found; accessibility and polish.
+- 2026-02-24: Code review (AI). Fixed: 404 metadata in generateMetadata; not-found Back link styling; aria-label Back navigation; removed data-context. Status → done.

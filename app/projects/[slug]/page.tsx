@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { getProjectBySlug } from "@/lib/projects";
+import { ProjectThumbnail } from "@/components/sections/ProjectThumbnail";
+import { ProjectDocumentLink } from "@/components/sections/ProjectDocumentLink";
 import { ArrowLeft } from "lucide-react";
 
 interface ProjectDetailPageProps {
@@ -15,7 +16,12 @@ export async function generateMetadata({
 }: ProjectDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  if (!project) return {};
+  if (!project) {
+    return {
+      title: "Project not found",
+      description: "The project you're looking for doesn't exist or has been removed.",
+    };
+  }
   const context = [project.role, project.period, project.domain]
     .filter(Boolean)
     .join(" · ");
@@ -34,12 +40,12 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const { title, thumbnail, role, period, domain } = project;
+  const { title, thumbnail, role, period, domain, documentUrl, documentLabel } = project;
   const contextParts = [role, period, domain].filter(Boolean);
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24">
-      <nav aria-label="Breadcrumb" className="mb-8">
+      <nav aria-label="Back navigation" className="mb-8">
         <Link
           href="/projects"
           className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
@@ -52,12 +58,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <article>
         <header className="mb-10 sm:mb-12">
           {thumbnail ? (
-            <div className="relative mb-6 aspect-video overflow-hidden rounded-xl bg-muted">
-              <Image
+            <div className="mb-6">
+              <ProjectThumbnail
                 src={thumbnail}
                 alt={`${title} — project thumbnail`}
-                fill
-                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 1024px"
               />
             </div>
@@ -66,7 +70,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             {title}
           </h1>
           {contextParts.length > 0 ? (
-            <p className="mt-3 text-lg text-muted-foreground sm:text-xl" data-context>
+            <p className="mt-3 text-lg text-muted-foreground sm:text-xl">
               {contextParts.join(" · ")}
             </p>
           ) : null}
@@ -97,6 +101,18 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             ) : null}
           </dl>
         </section>
+
+        {documentUrl && documentLabel ? (
+          <section aria-labelledby="project-document-heading" className="mt-8">
+            <h2 id="project-document-heading" className="sr-only">
+              Project document
+            </h2>
+            <ProjectDocumentLink
+              documentUrl={documentUrl}
+              documentLabel={documentLabel}
+            />
+          </section>
+        ) : null}
       </article>
     </div>
   );

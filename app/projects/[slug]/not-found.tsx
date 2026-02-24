@@ -13,7 +13,7 @@ export default function ProjectNotFound() {
       <p className="mt-6">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+          className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
         >
           <ArrowLeft className="size-4" aria-hidden />
           Back to Projects

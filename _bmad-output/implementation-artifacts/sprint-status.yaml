@@ -53,11 +53,11 @@ development_status:
 
   epic-2: in-progress
   2-1-projects-list-page-with-project-cards: done
-  2-2-project-detail-page-with-context-role-period-domain: review
-  2-3-real-project-content-from-assets-integrated: backlog
+  2-2-project-detail-page-with-context-role-period-domain: done
+  2-3-real-project-content-from-assets-integrated: done
   epic-2-retrospective: optional
 
-  epic-3: backlog
+  epic-3: in-progress
   3-1-recommendations-trust-section-or-page-structure: backlog
   3-2-at-least-one-recommendation-in-context-eg-anne-claire-petitcol: backlog
   3-3-attestations-and-official-documents-linked-or-embedded: backlog
