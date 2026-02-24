@@ -1,5 +1,6 @@
 ---
-stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+lastStep: 14
 inputDocuments:
   - prd.md
 ---
@@ -371,6 +372,74 @@ flowchart LR
 - **Phase 1 (MVP):** Nav (shadcn or custom nav with CTA), Hero (custom), ProjectCard (custom using Card), RecommendationBlock (custom), ContactSection (custom + optional Form), layout and global styles. Enough to support Recruiter and Hiring manager journeys.
 - **Phase 2:** Project detail page (content + optional PDF link), richer RecommendationBlock (e.g. multiple items), optional photo gallery or Assets integration.
 - **Phase 3:** Optional 3D/motion in Hero, optional CMS-driven content for Christy, any enhancement components.
+
+## UX Consistency Patterns
+
+### Button Hierarchy
+
+- **Primary:** One per view when possible—Contact CTA in hero and nav; "View" or "Read more" on project/recommendation when it’s the main action. Use solid background (e.g. primary token); clear label.
+- **Secondary:** Nav links, "Back to projects," secondary actions. Use ghost or outline so primary CTA stands out.
+- **Visual:** Primary = high contrast; secondary = lower emphasis. Touch target ≥ 44px; visible focus ring. Use shadcn Button variants (default, secondary, ghost, link) consistently.
+
+### Feedback Patterns
+
+- **Success:** Form submit → brief message ("Message sent" or "Link copied"); optional auto-dismiss. Use success color or checkmark; don’t block the next action.
+- **Error:** Inline for validation (e.g. under field); toast or banner for submit failure. Clear, short message and recovery (e.g. "Try again" or fix field).
+- **Loading:** Skeleton or spinner for sections that load async (e.g. optional 3D); avoid blocking hero/content. Buttons show loading state (disabled + spinner) when submitting.
+- **Accessibility:** Announce success/error to screen readers (live region or role="status"); don’t rely on color alone.
+
+### Form Patterns
+
+- **Contact (if form):** Minimal fields (e.g. name, email, message); labels above or floating; primary submit button; validation on blur or submit; success/error feedback as above.
+- **Validation:** Inline error under field; required fields marked (e.g. asterisk + "Required" in error). Don’t block submit on first keystroke.
+- **Accessibility:** Label + input associated; errors linked (aria-describedby); focus management after submit.
+
+### Navigation Patterns
+
+- **Global nav:** Persistent (sticky or fixed) with same items on every page: Home, About, Projects, Recommendations, Contact + primary CTA. Current page indicated (e.g. underline or aria-current).
+- **Mobile:** Hamburger or compact nav; same links and CTA; touch-friendly. CTA remains visible (e.g. in menu or as sticky bar).
+- **Keyboard:** Tab through nav then main content; visible focus; skip link optional for long pages.
+- **Breadcrumbs:** Optional for project detail; not required for shallow structure.
+
+### Additional Patterns
+
+- **Empty state:** If a section has no content yet (e.g. no projects), show short message and optional CTA—no blank block. Avoids confusion.
+- **Loading state:** Skeleton for project list or recommendations; hero and nav visible immediately. No full-page spinner for initial load when possible.
+- **Links to PDFs:** "Read full recommendation" / "View attestation" with icon or underline; open in new tab when external; indicate external if needed (e.g. "PDF").
+
+## Responsive Design & Accessibility
+
+### Responsive Strategy
+
+- **Mobile-first:** Layout and hierarchy optimized for small screens first; recruiters often open links on phone. Hero and CTA above the fold; nav collapses to hamburger or compact bar; touch targets ≥ 44px.
+- **Tablet:** Reuse mobile layout or single-column with more breathing room; touch-friendly. No separate tablet-only layout required.
+- **Desktop:** Same content and nav; use max-width and generous spacing so the page doesn’t stretch. Optional: slightly denser project grid (e.g. 2–3 columns). No side nav; keep global nav for consistency.
+
+### Breakpoint Strategy
+
+- **Breakpoints (align with Tailwind/shadcn):** sm 640px, md 768px, lg 1024px, xl 1280px. Mobile-first media queries.
+- **Key shifts:** Nav to hamburger below md if needed; project grid from 1 column (mobile) to 2–3 (lg+); hero and typography scale with viewport (clamp or responsive classes).
+- **No content removal by breakpoint:** All sections and CTA remain available at every size.
+
+### Accessibility Strategy
+
+- **Target:** WCAG 2.1 Level AA for key flows (navigation, viewing profile, viewing projects, reaching contact), per PRD.
+- **Contrast:** Text and UI meet 4.5:1 (normal text), 3:1 (large text and UI). Check focus and hover states.
+- **Keyboard:** All interactive elements focusable; logical tab order (nav → main → CTA); visible focus indicators; no keyboard traps.
+- **Screen readers:** Semantic HTML (headings, landmarks, buttons/links); form labels and errors associated; live regions for dynamic feedback. Optional skip link for long pages.
+- **Motion:** Respect `prefers-reduced-motion`; reduce or disable non-essential animation (hero, transitions) when requested.
+- **Touch targets:** Minimum 44×44px for tap targets on mobile.
+
+### Testing Strategy
+
+- **Responsive:** Test on real devices or emulation (e.g. Chrome DevTools) at 320px, 375px, 768px, 1024px, 1280px; verify hero and CTA visible and nav usable at each.
+- **Accessibility:** Automated checks (e.g. axe, Lighthouse); keyboard-only pass (tab, Enter, Escape); screen reader spot-check (VoiceOver or NVDA) for nav, hero, and Contact; contrast check.
+- **Performance:** LCP and CLS on 3G; 3D/motion must not block critical content.
+
+### Implementation Guidelines
+
+- **Responsive:** Prefer rem and % for typography and spacing; use design tokens. Mobile-first CSS; test touch targets. Optimize images (responsive srcset, format).
+- **Accessibility:** Semantic HTML (header, main, nav, section, footer); buttons vs links correctly chosen; aria where needed (e.g. aria-current for current page, aria-live for messages). Focus management in modals or after submit. Test with keyboard and one screen reader before release.
 
 ---
 

@@ -1,0 +1,71 @@
+# generated: 2026-02-24
+# project: Michelle Portfolio
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: {project-root}/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-02-24
+project: Michelle Portfolio
+project_key: NOKEY
+tracking_system: file-system
+story_location: "{project-root}/_bmad-output/implementation-artifacts"
+
+development_status:
+  epic-1: in-progress
+  1-1-project-initialization-and-stack-setup: done
+  1-2-app-shell-layout-and-route-structure: backlog
+  1-3-hero-section-with-identity-and-primary-cta: backlog
+  1-4-about-page-with-profile-experience-and-positioning: backlog
+  1-5-contact-section-and-contact-path-cta-form-or-link: backlog
+  1-6-responsive-layout-and-touch-friendly-navigation: backlog
+  1-7-design-system-application-reference-tier-visual-system: backlog
+  1-8-seo-and-shareability-metadata-open-graph: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-projects-list-page-with-project-cards: backlog
+  2-2-project-detail-page-with-context-role-period-domain: backlog
+  2-3-real-project-content-from-assets-integrated: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-recommendations-trust-section-or-page-structure: backlog
+  3-2-at-least-one-recommendation-in-context-eg-anne-claire-petitcol: backlog
+  3-3-attestations-and-official-documents-linked-or-embedded: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-structured-content-for-profile-and-about: backlog
+  4-2-structured-content-for-projects: backlog
+  4-3-structured-content-for-recommendations-and-contact-info: backlog
+  4-4-update-process-and-consistency-documentation: backlog
+  epic-4-retrospective: optional
