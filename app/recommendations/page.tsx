@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
-import { RecommendationBlock } from "@/components/sections/RecommendationBlock";
+import {
+  RecommendationBlock,
+  type RecommendationBlockProps,
+} from "@/components/sections/RecommendationBlock";
 
 export const metadata: Metadata = buildMetadata({
   title: "Recommendations",
@@ -9,14 +12,14 @@ export const metadata: Metadata = buildMetadata({
   path: "/recommendations",
 });
 
+function hasContent(rec: RecommendationBlockProps): boolean {
+  return !!(rec.quote ?? rec.attributorName ?? rec.attributorRole ?? rec.link);
+}
+
 export default function Recommendations() {
-  const recommendations: Array<{
-    quote?: string;
-    attributorName?: string;
-    attributorRole?: string;
-    link?: string;
-    linkLabel?: string;
-  }> = [];
+  const recommendations: RecommendationBlockProps[] = [];
+
+  const itemsWithContent = recommendations.filter(hasContent);
 
   return (
     <section
@@ -34,7 +37,7 @@ export default function Recommendations() {
         attestations from colleagues and clients.
       </p>
 
-      {recommendations.length === 0 ? (
+      {itemsWithContent.length === 0 ? (
         <div
           className="mt-10 rounded-xl border border-dashed border-muted-foreground/30 bg-muted/30 px-6 py-10 text-center sm:mt-12"
           data-empty-state="recommendations"
@@ -45,8 +48,8 @@ export default function Recommendations() {
         </div>
       ) : (
         <ul className="mt-10 flex flex-col gap-6 sm:mt-12" role="list">
-          {recommendations.map((rec, i) => (
-            <li key={i}>
+          {itemsWithContent.map((rec, i) => (
+            <li key={`rec-${i}`}>
               <RecommendationBlock
                 quote={rec.quote}
                 attributorName={rec.attributorName}

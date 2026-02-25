@@ -1,6 +1,6 @@
 # Story 3.1: Recommendations / Trust section or page structure
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -115,6 +115,7 @@ No new npm packages. Reuse existing design tokens and --section-gap.
 ### Completion Notes List
 
 - 2026-02-24: Implemented Recommendations page structure and empty state. Created `RecommendationBlock` in `components/sections/RecommendationBlock.tsx` with props: quote, attributorName, attributorRole, link, linkLabel; uses shadcn Card and typography. Updated `app/recommendations/page.tsx`: semantic section with aria-labelledby, h1 "Recommendations", supporting copy; empty state when no recommendations ("Recommendations will be featured here" in dashed-border block); list of RecommendationBlock when data present. Layout: max-w-3xl, px-4 py-[var(--section-gap)] sm:px-6 sm:py-24 to match About/Contact. No new route; metadata preserved. Manual verification: /recommendations shows dedicated credibility area, clear label, empty state, consistent layout. No automated tests per story.
+- 2026-02-25: Code review fixes (Amelia). MEDIUM: Filter recommendations so only items with content (quote, attributorName, attributorRole, or link) are rendered—avoids empty list items when RecommendationBlock would return null. LOW: Array type now uses RecommendationBlockProps from component (single source of truth). LOW: List key remains index-based (rec-${i}) until recommendations have stable ids. File List unchanged.
 
 ### File List
 
@@ -125,3 +126,4 @@ No new npm packages. Reuse existing design tokens and --section-gap.
 ## Change Log
 
 - 2026-02-24: Story 3.1 implemented — RecommendationBlock component, recommendations page structure, empty state, layout consistency with About/Contact. Status → review.
+- 2026-02-25: Code review (Amelia). Fixes applied: filter empty recommendation entries, type from RecommendationBlockProps, stable list keys. Status → done.
