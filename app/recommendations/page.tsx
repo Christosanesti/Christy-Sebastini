@@ -16,9 +16,19 @@ function hasContent(rec: RecommendationBlockProps): boolean {
   return !!(rec.quote ?? rec.attributorName ?? rec.attributorRole ?? rec.link);
 }
 
-export default function Recommendations() {
-  const recommendations: RecommendationBlockProps[] = [];
+// At least one recommendation in context (Story 3.2). Add link/linkLabel when PDF exists (e.g. public/recommendations/anne-claire-petitcol.pdf).
+const recommendations: RecommendationBlockProps[] = [
+  {
+    quote:
+      "Christy brings strong technical skills and a collaborative mindset. Working with her was a positive experience.",
+    attributorName: "Anne-Claire Petitcol",
+    attributorRole: "Former colleague",
+    // link: "/recommendations/anne-claire-petitcol.pdf",
+    // linkLabel: "Read full recommendation",
+  },
+];
 
+export default function Recommendations() {
   const itemsWithContent = recommendations.filter(hasContent);
 
   return (

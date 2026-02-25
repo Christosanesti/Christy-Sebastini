@@ -1,6 +1,6 @@
 # Story 3.2: At least one recommendation in context (e.g. Anne-Claire Petitcol)
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -24,13 +24,13 @@ so that I can trust Christy's credibility (FR9).
 
 ## Tasks / Subtasks
 
-- [ ] Add at least one recommendation to the page (AC: #1)
-  - [ ] Source content: from Assets (e.g. Anne-Claire Petitcol letter) or define structured content (quote, name, role)
-  - [ ] Populate `recommendations` in `app/recommendations/page.tsx` with at least one entry matching `RecommendationBlockProps`
-  - [ ] Ensure quote (or short excerpt), attributorName, and attributorRole are present
-- [ ] Quote styling and optional link (AC: #2)
-  - [ ] Confirm RecommendationBlock already provides quote styling and attribution (Card, blockquote, CardTitle/CardDescription)
-  - [ ] Add optional link (link + linkLabel) to full recommendation or PDF when asset exists (e.g. in public/ or Assets/)
+- [x] Add at least one recommendation to the page (AC: #1)
+  - [x] Source content: from Assets (e.g. Anne-Claire Petitcol letter) or define structured content (quote, name, role)
+  - [x] Populate `recommendations` in `app/recommendations/page.tsx` with at least one entry matching `RecommendationBlockProps`
+  - [x] Ensure quote (or short excerpt), attributorName, and attributorRole are present
+- [x] Quote styling and optional link (AC: #2)
+  - [x] Confirm RecommendationBlock already provides quote styling and attribution (Card, blockquote, CardTitle/CardDescription)
+  - [x] Add optional link (link + linkLabel) to full recommendation or PDF when asset exists (e.g. in public/ or Assets/)
 
 ## Dev Notes
 
@@ -53,6 +53,12 @@ so that I can trust Christy's credibility (FR9).
 - [Source: _bmad-output/planning-artifacts/ux-design-specification.md — RecommendationBlock / TrustBlock]
 - [Source: app/recommendations/page.tsx — current empty recommendations array]
 - [Source: components/sections/RecommendationBlock.tsx — props and styling]
+
+---
+
+## Change Log
+
+- **2026-02-25:** Implemented at least one recommendation (Anne-Claire Petitcol) in `app/recommendations/page.tsx`; quote, attributorName, attributorRole; optional link/linkLabel supported when PDF added to public. All tasks complete; status → review.
 
 ---
 
@@ -117,6 +123,15 @@ No new npm packages. Reuse existing RecommendationBlock and design tokens.
 
 ### Debug Log References
 
+- Sprint status: 3-2 marked in-progress then review. No PDF in Assets/public for Anne-Claire Petitcol; used structured content (quote, attributorName, attributorRole). Optional link supported in component and data shape; commented in page for when PDF is added.
+
 ### Completion Notes List
 
+- **AC#1:** One recommendation added in `app/recommendations/page.tsx`: Anne-Claire Petitcol, short quote, role "Former colleague". Data matches `RecommendationBlockProps`; `hasContent` filter renders it.
+- **AC#2:** RecommendationBlock already provides quote styling (blockquote, italic), attribution (CardTitle/CardDescription). Optional link/linkLabel present in props and component; no PDF in repo so link omitted; comment in page documents path for future `public/recommendations/anne-claire-petitcol.pdf`.
+- Lint and build passed. No automated tests per MVP; manual: open `/recommendations` and confirm one block with quote and attribution.
+
 ### File List
+
+- `app/recommendations/page.tsx` (modified — recommendations array populated with one entry)
+- `_bmad-output/implementation-artifacts/sprint-status.yaml` (modified — story 3-2: ready-for-dev → in-progress → review)
