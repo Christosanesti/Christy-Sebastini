@@ -49,7 +49,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-hidden">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} relative min-h-screen antialiased overflow-x-hidden bg-background`}
+        style={{
+          backgroundImage: "var(--layout-gradient)",
+          backgroundAttachment: "fixed",
+        }}
       >
         <a
           href="#main-content"
