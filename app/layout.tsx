@@ -18,25 +18,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Christy Sebastini — Designer & Creative Professional",
-    template: "%s | Christy Sebastini",
+    default: "Sebastini Christy — Marketer & Creative Professional",
+    template: "%s | Sebastini Christy",
   },
   description:
-    "Professional portfolio for Christy Sebastini — designer and creative professional.",
+    "Professional portfolio for Sebastini Christy — marketer and creative professional.",
   openGraph: {
-    title: "Christy Sebastini — Designer & Creative Professional",
+    title: "Sebastini Christy — Marketer & Creative Professional",
     description:
-      "Professional portfolio for Christy Sebastini — designer and creative professional.",
+      "Professional portfolio for Sebastini Christy — marketer and creative professional.",
     url: baseUrl,
     type: "website",
     siteName,
-    images: [{ url: defaultOgImage, alt: "Christy Sebastini — Portfolio" }],
+    images: [{ url: defaultOgImage, alt: "Sebastini Christy — Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christy Sebastini — Designer & Creative Professional",
+    title: "Sebastini Christy — Marketer & Creative Professional",
     description:
-      "Professional portfolio for Christy Sebastini — designer and creative professional.",
+      "Professional portfolio for Sebastini Christy — marketer and creative professional.",
     images: [defaultOgImage],
   },
 };

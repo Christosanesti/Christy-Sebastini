@@ -11,7 +11,7 @@ import { getAttestations } from "@/lib/attestations";
 export const metadata: Metadata = buildMetadata({
   title: "Recommendations",
   description:
-    "Recommendations and trust — what others say about working with Christy Sebastini.",
+    "Recommendations and trust — what others say about working with Sebastini Christy.",
   path: "/recommendations",
 });
 
@@ -36,7 +36,7 @@ export default function Recommendations() {
         Recommendations
       </h1>
       <p className="mt-3 text-lg text-muted-foreground sm:text-xl">
-        What others say about working with Christy — recommendations and
+        What others say about working with Sebastini Christy — recommendations and
         attestations from colleagues and clients.
       </p>
 

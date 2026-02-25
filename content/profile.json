@@ -1,16 +1,25 @@
 {
-  "heading": "About Christy",
-  "intro": "Designer and marketing professional with a focus on digital strategy, content, and user-centred experiences. Experience backed by a recommendation letter from a former manager and by work across food & nutrition, startups, and B2B.",
+  "heading": "About Sebastini Christy",
+  "intro": "Marketer and creative professional. Digital strategy, content, and campaigns—backed by experience in food & nutrition, B2B, and e‑commerce.",
   "experience": {
     "title": "Experience",
-    "paragraph": "Defining strategies adapted to business segments; creating targeted marketing and commercial tools; managing LinkedIn presence with regular, engaging content and performance tracking; leading website redesigns on WordPress and Joomla with SEO to improve organic traffic; designing and following email and newsletter campaigns on HubSpot and Splio; organizing and running trade shows and webinars to strengthen visibility; managing and updating CRM; tracking performance via Google Analytics, Google Search Console, Google Tag Manager and other analytics tools. Additional experience: LegalPlace (Salesforce), Wonderbox (content creation), Catnipster (SEO and advertising campaigns, in progress), and Mawzi—with summaries available on LinkedIn. For Transavia and Ubisoft the focus was content and collaboration; for ViaMapp and Viessmann the work was full design (Figma). Templates or mockups are shown where appropriate to reflect team collaboration without attributing others’ work."
+    "paragraph": "Strategy, content, and digital marketing across brands and startups.",
+    "bullets": [
+      "Strategy & marketing tools (ProteinesXTC, NewFoodData); LinkedIn, SEO, WordPress/Joomla",
+      "Email & newsletters (HubSpot, Splio); trade shows & webinars; CRM; Analytics (GA, GTM, Search Console)",
+      "LegalPlace (Salesforce), Wonderbox (briefing & content), Catnipster (SEO & ads), Mawzi",
+      "Content/collab: Transavia, Ubisoft. UI mockups: ViaMapp, Viessmann (Figma)"
+    ]
   },
   "sectors": {
     "title": "Sectors",
-    "paragraph": "Food and nutrition (ProteinesXTC, NewFoodData), startups (LegalPlace, Wonderbox), e‑commerce and retail (Catnipster), B2B digital products, energy and sustainability (Viessmann), travel and aviation (Transavia), gaming and digital (Ubisoft). Comfortable in regulated and multi-stakeholder environments."
+    "paragraph": "Food & nutrition, B2B, e‑commerce, travel, gaming, energy.",
+    "bullets": [
+      "ProteinesXTC, NewFoodData · LegalPlace · Wonderbox (large co.) · Catnipster · Mawzi · Viessmann · Transavia · Ubisoft"
+    ]
   },
   "positioning": {
-    "title": "Professional positioning",
-    "paragraph": "Positions design and marketing as a bridge between user needs and business goals. Advocates for clear, measurable digital presence—SEO, campaigns, CRM, and analytics—aligned with brand and product strategy."
+    "title": "Positioning",
+    "paragraph": "Marketing as the bridge between users and business goals. SEO, campaigns, CRM, and analytics aligned with brand strategy."
   }
 }

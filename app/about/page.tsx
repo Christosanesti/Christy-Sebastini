@@ -7,7 +7,7 @@ import { getProfile } from "@/lib/profile";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "About Christy Sebastini — experience, sectors, and professional positioning as a designer and creative professional.",
+    "About Sebastini Christy — experience, sectors, and professional positioning as a marketer and creative professional.",
   path: "/about",
 });
 

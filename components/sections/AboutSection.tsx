@@ -26,6 +26,13 @@ export function AboutSection({ profile }: AboutSectionProps) {
       <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
         {profile.experience.paragraph}
       </p>
+      {profile.experience.bullets?.length ? (
+        <ul className="mt-3 list-disc space-y-1 pl-6 text-muted-foreground sm:text-lg">
+          {profile.experience.bullets.map((b, i) => (
+            <li key={i}>{b}</li>
+          ))}
+        </ul>
+      ) : null}
 
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
         {profile.sectors.title}
@@ -33,6 +40,13 @@ export function AboutSection({ profile }: AboutSectionProps) {
       <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
         {profile.sectors.paragraph}
       </p>
+      {profile.sectors.bullets?.length ? (
+        <ul className="mt-3 list-disc space-y-1 pl-6 text-muted-foreground sm:text-lg">
+          {profile.sectors.bullets.map((b, i) => (
+            <li key={i}>{b}</li>
+          ))}
+        </ul>
+      ) : null}
 
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
         {profile.positioning.title}

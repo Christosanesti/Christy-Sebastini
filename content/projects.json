@@ -41,21 +41,28 @@
   {
     "slug": "wonderbox",
     "title": "Wonderbox",
-    "role": "Content creation",
+    "role": "Briefing & content creation",
     "period": "See LinkedIn",
-    "domain": "Gifts & experiences",
+    "domain": "Gifts & experiences (large company)",
     "credit": "content",
-    "documentLabel": "Content creation and related work"
+    "documentLabel": "Briefing and content creation"
   },
   {
     "slug": "mawzi",
     "title": "Mawzi",
-    "role": "—",
+    "role": "Marketing & design",
     "period": "See LinkedIn",
-    "domain": "—",
+    "domain": "Dental equipment management",
     "websiteUrl": "https://mawzi.com/fr",
     "credit": "content",
-    "documentLabel": "Summary on LinkedIn"
+    "documentLabel": "Summary on LinkedIn",
+    "gallery": [
+      { "src": "/images/projects/mawzi/landing-en-fr.jpg", "alt": "Mawzi landing page — English and French versions" },
+      { "src": "/images/projects/mawzi/sidebar-shortcut.jpg", "alt": "Mawzi in app shortcuts" },
+      { "src": "/images/projects/mawzi/design-mockups-instagram.jpg", "alt": "Mawzi design mockups and Instagram profile concept" },
+      { "src": "/images/projects/mawzi/app-screens.jpg", "alt": "Mawzi app — dashboard, equipment, technicians, camera, calendar" },
+      { "src": "/images/projects/mawzi/instagram-profile.jpg", "alt": "Mawzi labs Instagram profile mockup" }
+    ]
   },
   {
     "slug": "viessmann",
@@ -65,7 +72,10 @@
     "domain": "Energy & sustainability",
     "websiteUrl": "https://www.viessmann.fr/",
     "credit": "my-design",
-    "documentLabel": "My design (Figma)"
+    "documentLabel": "My design (Figma)",
+    "gallery": [
+      { "src": "/images/projects/viessmann/mobileheating-mockups.jpg", "alt": "Viessmann MobileHeating — Landing, Renting in, Renting out, Partner page (Figma)" }
+    ]
   },
   {
     "slug": "viamapa",

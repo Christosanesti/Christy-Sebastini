@@ -13,6 +13,15 @@ export const projectSchema = z.object({
   websiteUrl: z.string().url().optional(),
   /** Design credit: "my-design" (Figma/own), "content", "collaboration". */
   credit: z.enum(["my-design", "content", "collaboration"]).optional(),
+  /** Gallery images for project detail page. */
+  gallery: z
+    .array(
+      z.object({
+        src: z.string(),
+        alt: z.string().optional(),
+      })
+    )
+    .optional(),
 });
 
 export const projectsSchema = z.array(projectSchema);

@@ -5,6 +5,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { getProjectBySlug } from "@/lib/projects";
 import { ProjectThumbnail } from "@/components/sections/ProjectThumbnail";
 import { ProjectDocumentLink } from "@/components/sections/ProjectDocumentLink";
+import { ProjectGallery } from "@/components/sections/ProjectGallery";
 import { ArrowLeft } from "lucide-react";
 
 interface ProjectDetailPageProps {
@@ -26,8 +27,8 @@ export async function generateMetadata({
     .filter(Boolean)
     .join(" · ");
   const description = context
-    ? `${project.title} — ${context}. Christy Sebastini portfolio project.`
-    : `${project.title} — Christy Sebastini portfolio project.`;
+    ? `${project.title} — ${context}. Sebastini Christy portfolio project.`
+    : `${project.title} — Sebastini Christy portfolio project.`;
   return buildMetadata({
     title: project.title,
     description,
@@ -40,7 +41,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const { title, thumbnail, role, period, domain, documentUrl, documentLabel, websiteUrl, credit } = project;
+  const { title, thumbnail, role, period, domain, documentUrl, documentLabel, websiteUrl, credit, gallery } = project;
   const contextParts = [role, period, domain].filter(Boolean);
   const creditLabel = credit === "my-design" ? "My design (Figma)" : credit === "content" ? "Content / collaboration" : credit === "collaboration" ? "Collaboration" : null;
 
@@ -135,6 +136,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               <p className="text-sm text-muted-foreground">{documentLabel}</p>
             ) : null}
           </section>
+        ) : null}
+
+        {gallery && gallery.length > 0 ? (
+          <ProjectGallery images={gallery} projectTitle={title} />
         ) : null}
       </article>
     </div>

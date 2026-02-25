@@ -11,10 +11,10 @@ export function HeroSection() {
         id="hero-heading"
         className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
       >
-        Christy Sebastini
+        Sebastini Christy
       </h1>
       <p className="mt-3 text-lg text-muted-foreground sm:text-xl">
-        Designer & creative professional — crafting thoughtful digital
+        Marketer & creative professional — strategy, content, and campaigns
         experiences.
       </p>
       <div className="mt-8">

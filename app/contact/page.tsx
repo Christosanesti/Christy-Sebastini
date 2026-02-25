@@ -6,7 +6,7 @@ import { getContactContent } from "@/lib/contact-content";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Get in touch with Christy Sebastini — send a message or find contact details.",
+    "Get in touch with Sebastini Christy — send a message or find contact details.",
   path: "/contact",
 });
 

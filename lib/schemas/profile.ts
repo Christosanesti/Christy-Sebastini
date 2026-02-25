@@ -3,6 +3,8 @@ import { z } from "zod";
 const profileSectionSchema = z.object({
   title: z.string(),
   paragraph: z.string(),
+  /** Optional bullet points for scannable reading. */
+  bullets: z.array(z.string()).optional(),
 });
 
 export const profileSchema = z.object({
