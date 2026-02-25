@@ -22,7 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const meta = [role, period, domain].filter(Boolean).join(" · ") || undefined;
 
   return (
-    <Card className="flex h-full flex-col transition-[transform,box-shadow] duration-200 ease-out hover:shadow-md focus-within:shadow-md motion-reduce:transition-none">
+    <Card className="relative flex h-full flex-col overflow-hidden transition-[transform,box-shadow] duration-200 ease-out hover:shadow-md focus-within:shadow-md motion-reduce:transition-none group border-primary/10 hover:border-primary/25">
       <CardHeader className="gap-2">
         {thumbnail ? (
           <ProjectThumbnail
@@ -38,8 +38,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ) : null}
       </CardHeader>
       <CardContent className="flex-1" />
-      <CardFooter>
-        <Button asChild variant="outline" size="lg" className="min-h-[44px] min-w-[44px]">
+      <CardFooter className="pt-0">
+        <Button asChild variant="default" size="lg" className="min-h-[44px] min-w-[44px] w-full sm:w-auto">
           <Link
             href={href}
             className="inline-flex items-center gap-2"

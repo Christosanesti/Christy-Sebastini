@@ -60,9 +60,14 @@ export default function RootLayout({
         <Nav />
         <main
           id="main-content"
-          className="min-h-[calc(100vh-3.5rem)] w-full max-w-[100vw] overflow-x-hidden"
+          className="relative min-h-[calc(100vh-3.5rem)] w-full max-w-[100vw] overflow-x-hidden"
           tabIndex={-1}
         >
+          <div
+            className="h-1 w-full shrink-0"
+            style={{ background: "var(--accent-gradient)" }}
+            aria-hidden
+          />
           {children}
         </main>
         <Toaster richColors position="top-center" />

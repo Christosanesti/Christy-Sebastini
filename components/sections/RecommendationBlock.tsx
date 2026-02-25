@@ -39,10 +39,15 @@ export function RecommendationBlock({
 
   return (
     <Card
-      className="transition-[box-shadow] duration-200 ease-out hover:shadow-md focus-within:shadow-md motion-reduce:transition-none"
+      className="relative overflow-hidden transition-[box-shadow] duration-200 ease-out hover:shadow-md focus-within:shadow-md motion-reduce:transition-none"
       data-block="recommendation"
     >
-      <CardHeader className="gap-2">
+      <div
+        className="absolute left-0 top-0 bottom-0 w-1.5"
+        style={{ background: "var(--accent-gradient)" }}
+        aria-hidden
+      />
+      <CardHeader className="gap-2 pl-6">
         {(attributorImage ?? quote) && (
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             {attributorImage ? (
@@ -86,7 +91,7 @@ export function RecommendationBlock({
         ) : null}
       </CardHeader>
       {link ? (
-        <CardContent className="pt-0">
+        <CardContent className="pt-0 pl-6">
           <Link
             href={link}
             className="text-sm font-medium text-primary underline underline-offset-4 hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"

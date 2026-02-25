@@ -56,18 +56,25 @@ export function ContactBlock({
       className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24"
       aria-labelledby="contact-heading"
     >
-      <h2
-        id="contact-heading"
-        className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
-      >
-        {heading}
-      </h2>
-      <p className="mt-3 text-muted-foreground">
-        {subheading}
-      </p>
+      <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-muted/20 px-6 py-6 sm:px-8 sm:py-8">
+        <div
+          className="absolute bottom-0 left-0 right-0 h-2"
+          style={{ background: "var(--accent-gradient)" }}
+          aria-hidden
+        />
+        <h2
+          id="contact-heading"
+          className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+        >
+          {heading}
+        </h2>
+        <p className="mt-3 text-muted-foreground">
+          {subheading}
+        </p>
+      </div>
       <form
         action={formAction}
-        className="mt-8 space-y-6"
+        className="mt-10 space-y-6 sm:mt-12"
         noValidate
         onSubmit={(e) => {
           const form = e.currentTarget;

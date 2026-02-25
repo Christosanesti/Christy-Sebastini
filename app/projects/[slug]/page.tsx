@@ -47,15 +47,22 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24">
-      <nav aria-label="Back navigation" className="mb-8">
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-        >
-          <ArrowLeft className="size-4" aria-hidden />
-          Back to Projects
-        </Link>
-      </nav>
+      <div className="relative mb-8 overflow-hidden rounded-xl border border-border/60 bg-muted/20 py-4 pl-5 pr-4 sm:py-5 sm:pl-6 sm:pr-5">
+        <div
+          className="absolute left-0 top-0 bottom-0 w-2"
+          style={{ background: "var(--accent-gradient)" }}
+          aria-hidden
+        />
+        <nav aria-label="Back navigation">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+          >
+            <ArrowLeft className="size-4" aria-hidden />
+            Back to Projects
+          </Link>
+        </nav>
+      </div>
 
       <article>
         <header className="mb-10 sm:mb-12">
