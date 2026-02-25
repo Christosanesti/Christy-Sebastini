@@ -49,11 +49,7 @@ export function ProjectDocumentLink({
   }
 
   if (status === "unavailable") {
-    return (
-      <p className="text-sm text-muted-foreground">
-        {documentLabel}
-      </p>
-    );
+    return null;
   }
 
   return (

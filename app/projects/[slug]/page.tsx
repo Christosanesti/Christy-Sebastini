@@ -129,19 +129,15 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           ) : null}
         </section>
 
-        {(documentUrl || documentLabel) ? (
+        {documentUrl && documentLabel ? (
           <section aria-labelledby="project-document-heading" className="mt-8">
             <h2 id="project-document-heading" className="sr-only">
               Project document
             </h2>
-            {documentUrl && documentLabel ? (
-              <ProjectDocumentLink
-                documentUrl={documentUrl}
-                documentLabel={documentLabel}
-              />
-            ) : documentLabel ? (
-              <p className="text-sm text-muted-foreground">{documentLabel}</p>
-            ) : null}
+            <ProjectDocumentLink
+              documentUrl={documentUrl}
+              documentLabel={documentLabel}
+            />
           </section>
         ) : null}
 
