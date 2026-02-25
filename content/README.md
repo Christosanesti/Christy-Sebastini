@@ -18,6 +18,7 @@ Structured site copy lives here. Edit these files and redeploy to update the sit
 - **How to edit:** Edit `content/projects.json`. Rebuild or redeploy for changes to appear. Array order = list order. Slug must match route `/projects/[slug]`.
 - **JSON shape:** Array of project objects. Fields (camelCase): `slug`, `title`, `thumbnail` (optional), `role`, `period`, `domain`, `documentUrl`, `documentLabel`, `websiteUrl` (optional), `credit` (optional), `gallery` (optional: array of `{ src, alt? }` for project detail visuals). See `lib/schemas/project.ts` for the full schema.
 - **Periods:** Replace "See LinkedIn" or "Ongoing" with exact dates from [Christy's LinkedIn](https://www.linkedin.com/in/sebastini-christy/) when available.
+- **PDFs:** Only set `documentUrl` when the file exists in `public/documents/` (e.g. `documentUrl": "/documents/MyFile.pdf"`). Otherwise leave it out and use `documentLabel` for descriptive text only; no download link will be shown.
 
 ## Recommendations
 

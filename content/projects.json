@@ -86,8 +86,7 @@
     "period": "See LinkedIn",
     "domain": "Digital products",
     "credit": "my-design",
-    "documentUrl": "/documents/Presentation-ViaMapa.pdf",
-    "documentLabel": "View ViaMapa presentation (PDF) — my design (Figma)"
+    "documentLabel": "ViaMapa presentation (PDF) — my design (Figma)"
   },
   {
     "slug": "ubisoft",
@@ -97,8 +96,7 @@
     "domain": "Gaming & digital products",
     "thumbnail": "/images/projects/logo-ubisoft.png",
     "credit": "content",
-    "documentUrl": "/documents/UBISOFT.pdf",
-    "documentLabel": "View Ubisoft experience summary (PDF)"
+    "documentLabel": "Ubisoft experience summary (PDF)"
   },
   {
     "slug": "transavia",
@@ -107,8 +105,7 @@
     "period": "See LinkedIn",
     "domain": "Travel & aviation",
     "credit": "content",
-    "documentUrl": "/documents/Transavia.pdf",
-    "documentLabel": "View Transavia experience summary (PDF)"
+    "documentLabel": "Transavia experience summary (PDF)"
   },
   {
     "slug": "entrepreneurial",
@@ -116,8 +113,7 @@
     "role": "—",
     "period": "See LinkedIn",
     "domain": "Various",
-    "documentUrl": "/documents/Projet-entrepreneurial.pdf",
-    "documentLabel": "View entrepreneurial project summary (PDF)"
+    "documentLabel": "Entrepreneurial project summary (PDF)"
   },
   {
     "slug": "cinabre-paris",
@@ -125,7 +121,6 @@
     "role": "—",
     "period": "See LinkedIn",
     "domain": "Creative",
-    "documentUrl": "/documents/Cinabre-paris.com.pdf",
-    "documentLabel": "View Cinabre Paris reference (PDF)"
+    "documentLabel": "Cinabre Paris reference (PDF)"
   }
 ]
