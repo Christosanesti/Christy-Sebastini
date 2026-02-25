@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/sections/ProjectCard";
 export const metadata: Metadata = buildMetadata({
   title: "Projects",
   description:
-    "Projects by Sebastini Christy — design and creative work across sectors.",
+    "Projects by Christy Sebastini — design and creative work across sectors.",
   path: "/projects",
 });
 

@@ -27,8 +27,8 @@ export async function generateMetadata({
     .filter(Boolean)
     .join(" · ");
   const description = context
-    ? `${project.title} — ${context}. Sebastini Christy portfolio project.`
-    : `${project.title} — Sebastini Christy portfolio project.`;
+    ? `${project.title} — ${context}. Christy Sebastini portfolio project.`
+    : `${project.title} — Christy Sebastini portfolio project.`;
   return buildMetadata({
     title: project.title,
     description,

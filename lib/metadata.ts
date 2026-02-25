@@ -4,7 +4,7 @@ const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const defaultOgImage = `${baseUrl}/og-image.png`;
 
-export const siteName = "Sebastini Christy — Portfolio";
+export const siteName = "Christy Sebastini — Portfolio";
 
 export function buildMetadata({
   title,
@@ -25,7 +25,7 @@ export function buildMetadata({
       url,
       type: "website",
       siteName,
-      images: [{ url: defaultOgImage, alt: "Sebastini Christy — Portfolio" }],
+      images: [{ url: defaultOgImage, alt: "Christy Sebastini — Portfolio" }],
     },
     twitter: {
       card: "summary_large_image",
