@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
+import { RecommendationBlock } from "@/components/sections/RecommendationBlock";
 
 export const metadata: Metadata = buildMetadata({
   title: "Recommendations",
@@ -9,14 +10,54 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function Recommendations() {
+  const recommendations: Array<{
+    quote?: string;
+    attributorName?: string;
+    attributorRole?: string;
+    link?: string;
+    linkLabel?: string;
+  }> = [];
+
   return (
-    <div className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24">
-      <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+    <section
+      className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24"
+      aria-labelledby="recommendations-heading"
+    >
+      <h1
+        id="recommendations-heading"
+        className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
+      >
         Recommendations
       </h1>
       <p className="mt-3 text-lg text-muted-foreground sm:text-xl">
-        Placeholder content for the recommendations page.
+        What others say about working with Christy — recommendations and
+        attestations from colleagues and clients.
       </p>
-    </div>
+
+      {recommendations.length === 0 ? (
+        <div
+          className="mt-10 rounded-xl border border-dashed border-muted-foreground/30 bg-muted/30 px-6 py-10 text-center sm:mt-12"
+          data-empty-state="recommendations"
+        >
+          <p className="text-lg text-muted-foreground sm:text-xl">
+            Recommendations will be featured here.
+          </p>
+        </div>
+      ) : (
+        <ul className="mt-10 flex flex-col gap-6 sm:mt-12" role="list">
+          {recommendations.map((rec, i) => (
+            <li key={i}>
+              <RecommendationBlock
+                quote={rec.quote}
+                attributorName={rec.attributorName}
+                attributorRole={rec.attributorRole}
+                link={rec.link}
+                linkLabel={rec.linkLabel}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
