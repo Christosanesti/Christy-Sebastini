@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactBlock } from "@/components/sections/ContactBlock";
 import { buildMetadata } from "@/lib/metadata";
+import { getContactContent } from "@/lib/contact-content";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
@@ -10,9 +11,14 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function Contact() {
+  const content = getContactContent();
   return (
     <div className="mx-auto max-w-3xl">
-      <ContactBlock />
+      <ContactBlock
+        heading={content.heading}
+        subheading={content.subheading}
+        submitButtonLabel={content.ctaLabel}
+      />
     </div>
   );
 }

@@ -5,7 +5,8 @@ import {
   type RecommendationBlockProps,
 } from "@/components/sections/RecommendationBlock";
 import { ProjectDocumentLink } from "@/components/sections/ProjectDocumentLink";
-import { attestations } from "@/lib/attestations";
+import { getRecommendations } from "@/lib/recommendations";
+import { getAttestations } from "@/lib/attestations";
 
 export const metadata: Metadata = buildMetadata({
   title: "Recommendations",
@@ -18,20 +19,9 @@ function hasContent(rec: RecommendationBlockProps): boolean {
   return !!(rec.quote ?? rec.attributorName ?? rec.attributorRole ?? rec.link);
 }
 
-// At least one recommendation in context (Story 3.2). Add link/linkLabel when PDF exists (e.g. public/recommendations/anne-claire-petitcol.pdf).
-// Replace quote with real excerpt from Assets (e.g. Anne-Claire Petitcol letter) when available.
-const recommendations: RecommendationBlockProps[] = [
-  {
-    quote:
-      "Christy brings strong technical skills and a collaborative mindset. Working with her was a positive experience.",
-    attributorName: "Anne-Claire Petitcol",
-    attributorRole: "Former colleague",
-    // link: "/recommendations/anne-claire-petitcol.pdf",
-    // linkLabel: "Read full recommendation",
-  },
-];
-
 export default function Recommendations() {
+  const recommendations = getRecommendations();
+  const attestations = getAttestations();
   const itemsWithContent = recommendations.filter(hasContent);
 
   return (
@@ -61,7 +51,6 @@ export default function Recommendations() {
         </div>
       ) : (
         <ul className="mt-10 flex flex-col gap-6 sm:mt-12" role="list">
-          {/* Key: index-based OK for static list; use stable id when recommendations have ids/slugs */}
           {itemsWithContent.map((rec, i) => (
             <li key={`rec-${i}`}>
               <RecommendationBlock

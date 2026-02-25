@@ -28,6 +28,7 @@ export async function submitContact(
 
   try {
     // No email provider configured: stub success. Wire Resend/Formspree via env when ready.
+    // Recipient email: use process.env.CONTACT_EMAIL in server action; never in content file. See content/README.md.
     return { success: true, message: "Thank you. Your message has been received." };
   } catch {
     return { success: false, error: "Something went wrong. Please try again." };

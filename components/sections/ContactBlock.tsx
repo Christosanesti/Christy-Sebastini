@@ -14,7 +14,24 @@ type FieldErrors = Record<"name" | "email" | "message", string | undefined>;
 
 const initialState: ContactResult | null = null;
 
-export function ContactBlock() {
+export interface ContactBlockProps {
+  /** Section heading (from content/contact.json) */
+  heading?: string;
+  /** Subheading/description (from content/contact.json) */
+  subheading?: string;
+  /** Submit button label (from content/contact.json ctaLabel) */
+  submitButtonLabel?: string;
+}
+
+const DEFAULT_HEADING = "Get in touch";
+const DEFAULT_SUBHEADING = "Send a message and I'll get back to you.";
+const DEFAULT_SUBMIT_LABEL = "Send message";
+
+export function ContactBlock({
+  heading = DEFAULT_HEADING,
+  subheading = DEFAULT_SUBHEADING,
+  submitButtonLabel = DEFAULT_SUBMIT_LABEL,
+}: ContactBlockProps = {}) {
   const [state, formAction, isPending] = useActionState(submitContact, initialState);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({
     name: undefined,
@@ -43,10 +60,10 @@ export function ContactBlock() {
         id="contact-heading"
         className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
       >
-        Get in touch
+        {heading}
       </h2>
       <p className="mt-3 text-muted-foreground">
-        Send a message and I&apos;ll get back to you.
+        {subheading}
       </p>
       <form
         action={formAction}
@@ -138,7 +155,7 @@ export function ContactBlock() {
           )}
         </div>
         <Button type="submit" size="lg" disabled={isPending} className="min-h-[44px] min-w-[44px]">
-          {isPending ? "Sending…" : "Send message"}
+          {isPending ? "Sending…" : submitButtonLabel}
         </Button>
       </form>
     </section>
