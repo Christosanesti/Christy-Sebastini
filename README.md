@@ -20,9 +20,13 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Content updates
+
+To update profile, projects, recommendations, or contact info: see **[content/README.md](content/README.md)**. It lists where each content type lives, which pages use it, how to edit, and the **update process** (edit file → validate JSON if needed → commit & push → deploy). Contact form recipient and API keys are configured via environment variables (see **Environment variables** below and `.env.example`).
+
 ## Environment variables
 
-Required environment variables (e.g. for contact form) will be documented here and in `.env.example` when that feature is added. For now, copy `.env.example` to `.env.local` if you need a template.
+Copy `.env.example` to `.env.local` and set values. Contact form: set `CONTACT_EMAIL` (and e.g. `RESEND_API_KEY` if using Resend). See `content/README.md` (Contact section) for details. Other required variables are documented in `.env.example`.
 
 ## Learn More
 

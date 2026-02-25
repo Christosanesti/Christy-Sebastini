@@ -2,6 +2,8 @@
 
 Structured site copy lives here. Edit these files and redeploy to update the site without changing component code.
 
+**Single source of truth:** Each content type has exactly one source file (listed below). Update that file and redeploy; you do not need to edit multiple places. No content is duplicated in component code — all data is loaded from `content/*.json` via loaders in `lib/`.
+
 ## Profile and About
 
 - **File:** `profile.json`
@@ -29,4 +31,13 @@ Structured site copy lives here. Edit these files and redeploy to update the sit
 - **Used by:** Contact page/section (`/contact`), `ContactBlock` component
 - **How to edit:** Edit `content/contact.json` for heading, subheading, and CTA button label. Rebuild or redeploy for changes to appear.
 - **JSON shape:** `heading`, `subheading`, `ctaLabel`. See `lib/schemas/contact-content.ts` for the full schema.
-- **Env:** The form recipient email (and any API key for sending) must **not** be in the content file. Use environment variables (e.g. `CONTACT_EMAIL`) in the server action only (`lib/actions/contact.ts`). This keeps sensitive data out of the repo and allows safe updates without code change.
+- **Env:** The form recipient email (and any API key for sending) must **not** be in the content file. Use environment variables (e.g. `CONTACT_EMAIL`, `RESEND_API_KEY`) in the server action only (`lib/actions/contact.ts`). Set these in `.env.local` (see project root `.env.example`). This keeps sensitive data out of the repo and allows safe updates without code change.
+
+---
+
+## Update process (how to update and redeploy)
+
+1. **Edit the relevant file** under `content/` (e.g. `content/profile.json`, `content/projects.json`, `content/recommendations.json`, `content/contact.json`).
+2. **Validate JSON** if needed (e.g. paste into a JSON validator or run a lint script) so the build does not fail.
+3. **Commit and push** your changes.
+4. **Deploy** or trigger a build (e.g. `bun run build` then deploy; or push to a branch that triggers your host’s deployment). The site will reflect the change in the correct sections after the next build.
