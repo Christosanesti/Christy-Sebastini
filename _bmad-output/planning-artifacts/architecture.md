@@ -314,7 +314,7 @@ Michelle-Portfolio/                    # or project root name
 │   │   ├── HeroSection.tsx
 │   │   ├── ProjectsList.tsx
 │   │   ├── ProjectCard.tsx
-│   │   ├── RecommendationsBlock.tsx
+│   │   ├── RecommendationBlock.tsx
 │   │   └── ContactBlock.tsx
 │   └── three/
 │       └── HeroScene.tsx      # optional 3D hero; lazy-loaded
@@ -347,7 +347,7 @@ Michelle-Portfolio/                    # or project root name
 |--------|--------------------|
 | Identity & profile (FR1–FR3) | `app/page.tsx`, `app/about/page.tsx`, `components/sections/HeroSection.tsx` |
 | Projects (FR4–FR7) | `app/projects/page.tsx`, `app/projects/[slug]/page.tsx`, `components/sections/ProjectsList.tsx`, `ProjectCard.tsx` |
-| Trust & credibility (FR8–FR11) | `app/recommendations/page.tsx`, `components/sections/RecommendationsBlock.tsx` |
+| Trust & credibility (FR8–FR11) | `app/recommendations/page.tsx`, `components/sections/RecommendationBlock.tsx` |
 | Contact (FR12–FR14) | `app/contact/page.tsx`, `components/sections/ContactBlock.tsx`, `lib/actions/contact.ts`, `lib/schemas/contact.ts` |
 | Navigation (FR15–FR18) | `app/layout.tsx`, `components/layout/Nav.tsx`, `Header.tsx`, `Footer.tsx` |
 | Presentation (FR19–FR21) | `app/globals.css`, `components/ui/`, design tokens; optional `components/three/HeroSection.tsx` with reduced-motion handling |

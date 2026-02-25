@@ -1,6 +1,6 @@
 # Story 3.2: At least one recommendation in context (e.g. Anne-Claire Petitcol)
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -49,7 +49,7 @@ so that I can trust Christy's credibility (FR9).
 ### References
 
 - [Source: _bmad-output/planning-artifacts/epics.md — Epic 3, Story 3.2, FR9]
-- [Source: _bmad-output/planning-artifacts/architecture.md — Trust & credibility, RecommendationsBlock]
+- [Source: _bmad-output/planning-artifacts/architecture.md — Trust & credibility, RecommendationBlock]
 - [Source: _bmad-output/planning-artifacts/ux-design-specification.md — RecommendationBlock / TrustBlock]
 - [Source: app/recommendations/page.tsx — current empty recommendations array]
 - [Source: components/sections/RecommendationBlock.tsx — props and styling]
@@ -59,6 +59,7 @@ so that I can trust Christy's credibility (FR9).
 ## Change Log
 
 - **2026-02-25:** Implemented at least one recommendation (Anne-Claire Petitcol) in `app/recommendations/page.tsx`; quote, attributorName, attributorRole; optional link/linkLabel supported when PDF added to public. All tasks complete; status → review.
+- **2026-02-25:** Code review (Amelia). Fixes: story status aligned to review; Dev Agent Record placeholder replaced; architecture + story references corrected to RecommendationBlock; comments in page for list key and placeholder quote. Status → done.
 
 ---
 
@@ -112,14 +113,14 @@ No new npm packages. Reuse existing RecommendationBlock and design tokens.
 
 ### Story completion status
 
-- **Status:** ready-for-dev
-- **Completion note:** Ultimate context engine analysis completed — comprehensive developer guide created.
+- **Status:** done
+- **Completion note:** Ultimate context engine analysis completed — comprehensive developer guide created. Code review fixes applied.
 
 ## Dev Agent Record
 
 ### Agent Model Used
 
-{{agent_model_name_version}}
+N/A (code review fixes applied by Amelia)
 
 ### Debug Log References
 
@@ -130,8 +131,11 @@ No new npm packages. Reuse existing RecommendationBlock and design tokens.
 - **AC#1:** One recommendation added in `app/recommendations/page.tsx`: Anne-Claire Petitcol, short quote, role "Former colleague". Data matches `RecommendationBlockProps`; `hasContent` filter renders it.
 - **AC#2:** RecommendationBlock already provides quote styling (blockquote, italic), attribution (CardTitle/CardDescription). Optional link/linkLabel present in props and component; no PDF in repo so link omitted; comment in page documents path for future `public/recommendations/anne-claire-petitcol.pdf`.
 - Lint and build passed. No automated tests per MVP; manual: open `/recommendations` and confirm one block with quote and attribution.
+- Code review fixes: story status consistency, Dev Agent Record placeholder, RecommendationBlock naming in docs; page comments for list key and placeholder quote.
 
 ### File List
 
-- `app/recommendations/page.tsx` (modified — recommendations array populated with one entry)
-- `_bmad-output/implementation-artifacts/sprint-status.yaml` (modified — story 3-2: ready-for-dev → in-progress → review)
+- `app/recommendations/page.tsx` (modified — recommendations array, comments for key/placeholder)
+- `_bmad-output/planning-artifacts/architecture.md` (modified — RecommendationBlock naming in structure and mapping)
+- `_bmad-output/implementation-artifacts/3-2-at-least-one-recommendation-in-context-eg-anne-claire-petitcol.md` (modified — status, Dev Agent Record, References, Change Log, File List)
+- `_bmad-output/implementation-artifacts/sprint-status.yaml` (modified — story 3-2: review → done)

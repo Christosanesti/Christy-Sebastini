@@ -17,6 +17,7 @@ function hasContent(rec: RecommendationBlockProps): boolean {
 }
 
 // At least one recommendation in context (Story 3.2). Add link/linkLabel when PDF exists (e.g. public/recommendations/anne-claire-petitcol.pdf).
+// Replace quote with real excerpt from Assets (e.g. Anne-Claire Petitcol letter) when available.
 const recommendations: RecommendationBlockProps[] = [
   {
     quote:
@@ -58,6 +59,7 @@ export default function Recommendations() {
         </div>
       ) : (
         <ul className="mt-10 flex flex-col gap-6 sm:mt-12" role="list">
+          {/* Key: index-based OK for static list; use stable id when recommendations have ids/slugs */}
           {itemsWithContent.map((rec, i) => (
             <li key={`rec-${i}`}>
               <RecommendationBlock
