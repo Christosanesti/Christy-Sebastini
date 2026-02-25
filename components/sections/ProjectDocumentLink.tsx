@@ -50,9 +50,8 @@ export function ProjectDocumentLink({
 
   if (status === "unavailable") {
     return (
-      <p className="inline-flex items-center gap-2 rounded-md border border-dashed border-muted-foreground/30 bg-muted/50 px-4 py-2 text-sm text-muted-foreground">
-        <FileText className="size-4 shrink-0" aria-hidden />
-        <span>Document not available</span>
+      <p className="text-sm text-muted-foreground">
+        {documentLabel}
       </p>
     );
   }

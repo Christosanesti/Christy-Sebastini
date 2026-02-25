@@ -1,37 +1,108 @@
 [
   {
+    "slug": "proteinesxtc",
+    "title": "ProteinesXTC",
+    "role": "Marketing & digital",
+    "period": "See LinkedIn",
+    "domain": "Food & nutrition",
+    "websiteUrl": "https://www.proteinesxtc.com/",
+    "credit": "content",
+    "documentLabel": "Experience backed by manager recommendation letter"
+  },
+  {
+    "slug": "newfooddata",
+    "title": "NewFoodData",
+    "role": "Marketing & digital",
+    "period": "See LinkedIn",
+    "domain": "Food & nutrition",
+    "websiteUrl": "https://www.newfooddata.com/fr/",
+    "credit": "content",
+    "documentLabel": "Experience backed by manager recommendation letter"
+  },
+  {
+    "slug": "catnipster",
+    "title": "Catnipster",
+    "role": "SEO, advertising campaigns",
+    "period": "Ongoing",
+    "domain": "E‑commerce",
+    "websiteUrl": "https://catnipster.store/",
+    "credit": "content",
+    "documentLabel": "In progress — SEO and campaigns"
+  },
+  {
+    "slug": "legalplace",
+    "title": "LegalPlace",
+    "role": "Marketing / Salesforce",
+    "period": "See LinkedIn",
+    "domain": "Legal tech startup",
+    "credit": "content",
+    "documentLabel": "Documents available on request"
+  },
+  {
+    "slug": "wonderbox",
+    "title": "Wonderbox",
+    "role": "Content creation",
+    "period": "See LinkedIn",
+    "domain": "Gifts & experiences",
+    "credit": "content",
+    "documentLabel": "Content creation and related work"
+  },
+  {
+    "slug": "mawzi",
+    "title": "Mawzi",
+    "role": "—",
+    "period": "See LinkedIn",
+    "domain": "—",
+    "websiteUrl": "https://mawzi.com/fr",
+    "credit": "content",
+    "documentLabel": "Summary on LinkedIn"
+  },
+  {
+    "slug": "viessmann",
+    "title": "Viessmann",
+    "role": "Design",
+    "period": "See LinkedIn",
+    "domain": "Energy & sustainability",
+    "websiteUrl": "https://www.viessmann.fr/",
+    "credit": "my-design",
+    "documentLabel": "My design (Figma)"
+  },
+  {
+    "slug": "viamapa",
+    "title": "ViaMapa",
+    "role": "Design",
+    "period": "See LinkedIn",
+    "domain": "Digital products",
+    "credit": "my-design",
+    "documentUrl": "/documents/Presentation-ViaMapa.pdf",
+    "documentLabel": "View ViaMapa presentation (PDF) — my design (Figma)"
+  },
+  {
     "slug": "ubisoft",
     "title": "Ubisoft",
-    "role": "Design",
-    "period": "—",
+    "role": "Content / collaboration",
+    "period": "See LinkedIn",
     "domain": "Gaming & digital products",
     "thumbnail": "/images/projects/logo-ubisoft.png",
+    "credit": "content",
     "documentUrl": "/documents/UBISOFT.pdf",
     "documentLabel": "View Ubisoft experience summary (PDF)"
   },
   {
     "slug": "transavia",
     "title": "Transavia",
-    "role": "Design",
-    "period": "—",
+    "role": "Content / collaboration",
+    "period": "See LinkedIn",
     "domain": "Travel & aviation",
+    "credit": "content",
     "documentUrl": "/documents/Transavia.pdf",
     "documentLabel": "View Transavia experience summary (PDF)"
-  },
-  {
-    "slug": "viamapa",
-    "title": "ViaMapa",
-    "role": "Design",
-    "period": "—",
-    "domain": "Digital products",
-    "documentUrl": "/documents/Presentation-ViaMapa.pdf",
-    "documentLabel": "View ViaMapa presentation (PDF)"
   },
   {
     "slug": "entrepreneurial",
     "title": "Entrepreneurial work",
     "role": "—",
-    "period": "—",
+    "period": "See LinkedIn",
     "domain": "Various",
     "documentUrl": "/documents/Projet-entrepreneurial.pdf",
     "documentLabel": "View entrepreneurial project summary (PDF)"
@@ -40,7 +111,7 @@
     "slug": "cinabre-paris",
     "title": "Cinabre Paris",
     "role": "—",
-    "period": "—",
+    "period": "See LinkedIn",
     "domain": "Creative",
     "documentUrl": "/documents/Cinabre-paris.com.pdf",
     "documentLabel": "View Cinabre Paris reference (PDF)"

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -14,6 +15,8 @@ export interface RecommendationBlockProps {
   attributorName?: string;
   /** Role or title of the attributor */
   attributorRole?: string;
+  /** Image path under public (e.g. /images/recommendations/name.jpg) */
+  attributorImage?: string;
   /** Optional link to full document (e.g. PDF) */
   link?: string;
   /** Optional label for the link */
@@ -24,10 +27,11 @@ export function RecommendationBlock({
   quote,
   attributorName,
   attributorRole,
+  attributorImage,
   link,
   linkLabel = "View full recommendation",
 }: RecommendationBlockProps) {
-  const hasContent = quote ?? attributorName ?? attributorRole ?? link;
+  const hasContent = quote ?? attributorName ?? attributorRole ?? attributorImage ?? link;
 
   if (!hasContent) {
     return null;
@@ -39,7 +43,29 @@ export function RecommendationBlock({
       data-block="recommendation"
     >
       <CardHeader className="gap-2">
-        {quote ? (
+        {(attributorImage ?? quote) && (
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            {attributorImage ? (
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-muted">
+                <Image
+                  src={attributorImage}
+                  alt={attributorName ? `${attributorName} — photo` : "Recommender photo"}
+                  width={80}
+                  height={80}
+                  className="object-cover"
+                />
+              </div>
+            ) : null}
+            <div className="min-w-0 flex-1">
+              {quote ? (
+                <blockquote className="text-lg text-foreground sm:text-xl leading-relaxed border-l-0 pl-0 italic">
+                  {quote}
+                </blockquote>
+              ) : null}
+            </div>
+          </div>
+        )}
+        {!attributorImage && quote ? (
           <blockquote className="text-lg text-foreground sm:text-xl leading-relaxed border-l-0 pl-0 italic">
             {quote}
           </blockquote>

@@ -16,7 +16,8 @@ Structured site copy lives here. Edit these files and redeploy to update the sit
 - **File:** `projects.json`
 - **Used by:** Projects list (`/projects`), project detail (`/projects/[slug]`)
 - **How to edit:** Edit `content/projects.json`. Rebuild or redeploy for changes to appear. Array order = list order. Slug must match route `/projects/[slug]`.
-- **JSON shape:** Array of project objects. Fields (camelCase): `slug`, `title`, `thumbnail` (optional), `role`, `period`, `domain`, `documentUrl`, `documentLabel`. See `lib/schemas/project.ts` for the full schema.
+- **JSON shape:** Array of project objects. Fields (camelCase): `slug`, `title`, `thumbnail` (optional), `role`, `period`, `domain`, `documentUrl`, `documentLabel`, `websiteUrl` (optional), `credit` (optional: `my-design` | `content` | `collaboration`). See `lib/schemas/project.ts` for the full schema.
+- **Periods:** Replace "See LinkedIn" or "Ongoing" with exact dates from [Christy's LinkedIn](https://www.linkedin.com/in/sebastini-christy/) when available.
 
 ## Recommendations
 
@@ -24,6 +25,7 @@ Structured site copy lives here. Edit these files and redeploy to update the sit
 - **Used by:** Recommendations page (`/recommendations`)
 - **How to edit:** Edit `content/recommendations.json`. Rebuild or redeploy for changes to appear.
 - **JSON shape:** Object with `recommendations` (array) and optional `attestations` (array). Recommendation items: `quote`, `attributorName`, `attributorRole`, `link`, `linkLabel` (camelCase). Attestation items: `label`, `path` (paths under `public/`, e.g. `/documents/...`). See `lib/schemas/recommendation.ts` for the full schema.
+- **Note:** Recommendation letter from former manager backs ProteinesXTC and NewFoodData experience. Ex-manager LinkedIn links can be added to recommendations after permissions; keep site presentable first.
 
 ## Contact
 

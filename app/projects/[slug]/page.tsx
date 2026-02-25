@@ -40,8 +40,9 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const { title, thumbnail, role, period, domain, documentUrl, documentLabel } = project;
+  const { title, thumbnail, role, period, domain, documentUrl, documentLabel, websiteUrl, credit } = project;
   const contextParts = [role, period, domain].filter(Boolean);
+  const creditLabel = credit === "my-design" ? "My design (Figma)" : credit === "content" ? "Content / collaboration" : credit === "collaboration" ? "Collaboration" : null;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24">
@@ -99,18 +100,40 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 <dd className="mt-0.5 text-foreground">{domain}</dd>
               </div>
             ) : null}
+            {creditLabel ? (
+              <div>
+                <dt className="text-sm font-medium text-muted-foreground">Credit</dt>
+                <dd className="mt-0.5 text-foreground">{creditLabel}</dd>
+              </div>
+            ) : null}
           </dl>
+          {websiteUrl ? (
+            <p className="mt-3">
+              <a
+                href={websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+              >
+                Visit website
+              </a>
+            </p>
+          ) : null}
         </section>
 
-        {documentUrl && documentLabel ? (
+        {(documentUrl || documentLabel) ? (
           <section aria-labelledby="project-document-heading" className="mt-8">
             <h2 id="project-document-heading" className="sr-only">
               Project document
             </h2>
-            <ProjectDocumentLink
-              documentUrl={documentUrl}
-              documentLabel={documentLabel}
-            />
+            {documentUrl && documentLabel ? (
+              <ProjectDocumentLink
+                documentUrl={documentUrl}
+                documentLabel={documentLabel}
+              />
+            ) : documentLabel ? (
+              <p className="text-sm text-muted-foreground">{documentLabel}</p>
+            ) : null}
           </section>
         ) : null}
       </article>

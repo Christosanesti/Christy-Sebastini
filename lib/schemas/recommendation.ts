@@ -5,6 +5,8 @@ export const recommendationItemSchema = z.object({
   quote: z.string().optional(),
   attributorName: z.string().optional(),
   attributorRole: z.string().optional(),
+  /** Image path under public (e.g. /images/recommendations/name.jpg). */
+  attributorImage: z.string().optional(),
   link: z.string().optional(),
   linkLabel: z.string().optional(),
 });

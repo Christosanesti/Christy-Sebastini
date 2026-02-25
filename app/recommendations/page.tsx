@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 function hasContent(rec: RecommendationBlockProps): boolean {
-  return !!(rec.quote ?? rec.attributorName ?? rec.attributorRole ?? rec.link);
+  return !!(rec.quote ?? rec.attributorName ?? rec.attributorRole ?? rec.attributorImage ?? rec.link);
 }
 
 export default function Recommendations() {
@@ -57,6 +57,7 @@ export default function Recommendations() {
                 quote={rec.quote}
                 attributorName={rec.attributorName}
                 attributorRole={rec.attributorRole}
+                attributorImage={rec.attributorImage}
                 link={rec.link}
                 linkLabel={rec.linkLabel}
               />

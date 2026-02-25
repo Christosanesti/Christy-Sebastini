@@ -9,6 +9,10 @@ export const projectSchema = z.object({
   domain: z.string().optional(),
   documentUrl: z.string().optional(),
   documentLabel: z.string().optional(),
+  /** Live site URL; shown when present. */
+  websiteUrl: z.string().url().optional(),
+  /** Design credit: "my-design" (Figma/own), "content", "collaboration". */
+  credit: z.enum(["my-design", "content", "collaboration"]).optional(),
 });
 
 export const projectsSchema = z.array(projectSchema);
