@@ -1,6 +1,6 @@
 # Story 4.3: Structured content for recommendations and contact info
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -106,10 +106,35 @@ so that recommendations and contact details can be updated in one place (FR22, F
 
 ### Agent Model Used
 
-{{agent_model_name_version}}
+Amelia (Dev Agent)
 
 ### Debug Log References
 
+### Code Review (AI) — 2026-02-25
+
+- Fixes applied: Agent Model placeholder replaced; CONTACT_EMAIL read in contact action with production guard; getAttestations() now throws on invalid content (aligned with getRecommendations); sprint-status and File List updated. All MEDIUM items addressed.
+
 ### Completion Notes List
 
+- Implemented content-driven recommendations and contact: `content/recommendations.json` (recommendations + attestations arrays), `content/contact.json` (heading, subheading, ctaLabel). Zod schemas in `lib/schemas/recommendation.ts` and `lib/schemas/contact-content.ts`. Loaders `lib/recommendations.ts` (getRecommendations, getAttestations) and `lib/contact-content.ts` (getContactContent); sync read, safe errors, same pattern as profile/projects. `lib/attestations.ts` refactored to re-export getAttestations from recommendations loader. Recommendations page and contact page wire to loaders only; ContactBlock accepts optional heading, subheading, submitButtonLabel from content. Contact recipient documented for env (CONTACT_EMAIL); no recipient in content file. Build verified; no automated tests per MVP.
+
+### Change Log
+
+- 2026-02-25: Implemented structured content for recommendations and contact (AC #1, #2). Content files, Zod schemas, loaders, page/section wiring; attestations refactored to content; contact recipient env documented.
+- 2026-02-25: Code review. Fixes: template literal in Dev Agent Record; contact action reads CONTACT_EMAIL and fails in production if unset; getAttestations() throws on invalid content; File List + sprint-status updated. Status → done.
+
 ### File List
+
+- lib/schemas/recommendation.ts (new)
+- lib/schemas/contact-content.ts (new)
+- lib/recommendations.ts (new)
+- lib/contact-content.ts (new)
+- lib/attestations.ts (refactored — re-exports from recommendations)
+- lib/actions/contact.ts (reads CONTACT_EMAIL; production guard if unset)
+- content/recommendations.json (new)
+- content/contact.json (new)
+- content/README.md (updated — Recommendations, Contact sections + env note)
+- app/recommendations/page.tsx (refactored — getRecommendations, getAttestations from lib)
+- app/contact/page.tsx (getContactContent, pass props to ContactBlock)
+- components/sections/ContactBlock.tsx (ContactBlockProps: heading, subheading, submitButtonLabel)
+- _bmad-output/implementation-artifacts/sprint-status.yaml (4-3 → done after review)

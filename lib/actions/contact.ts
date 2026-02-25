@@ -26,9 +26,12 @@ export async function submitContact(
     return { success: false, error: msg };
   }
 
+  const recipient = process.env.CONTACT_EMAIL;
   try {
-    // No email provider configured: stub success. Wire Resend/Formspree via env when ready.
-    // Recipient email: use process.env.CONTACT_EMAIL in server action; never in content file. See content/README.md.
+    // No email provider configured: stub success. When wiring Resend/Formspree, use recipient and send.
+    if (!recipient && process.env.NODE_ENV === "production") {
+      return { success: false, error: "Contact form is not configured. Set CONTACT_EMAIL." };
+    }
     return { success: true, message: "Thank you. Your message has been received." };
   } catch {
     return { success: false, error: "Something went wrong. Please try again." };

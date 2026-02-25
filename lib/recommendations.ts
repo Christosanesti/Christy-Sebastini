@@ -64,6 +64,7 @@ export function getRecommendations(): RecommendationItem[] {
 /**
  * Load attestations from content/recommendations.json (attestations array).
  * Server-only; call from Server Components or server context.
+ * @throws Error with safe message if file is missing or content is invalid (same as getRecommendations)
  */
 export function getAttestations(): AttestationEntry[] {
   try {
@@ -71,10 +72,29 @@ export function getAttestations(): AttestationEntry[] {
     const parsed: unknown = JSON.parse(raw);
     const result = recommendationsContentSchema.safeParse(parsed);
     if (!result.success) {
-      return [];
+      const first = result.error.flatten().fieldErrors;
+      const msg = Object.entries(first)
+        .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : v}`)
+        .join("; ");
+      throw new Error(`Invalid recommendations content: ${msg}`);
     }
     return result.data.attestations ?? [];
-  } catch {
-    return [];
+  } catch (err) {
+    if (err instanceof Error && err.message.startsWith("Invalid recommendations content:")) {
+      throw err;
+    }
+    if (err instanceof SyntaxError) {
+      throw new Error("Recommendations file is not valid JSON.");
+    }
+    if (
+      err instanceof Error &&
+      "code" in err &&
+      (err as NodeJS.ErrnoException).code === "ENOENT"
+    ) {
+      throw new Error(
+        "Recommendations content file not found. Add content/recommendations.json."
+      );
+    }
+    throw new Error("Failed to load recommendations content.");
   }
 }
