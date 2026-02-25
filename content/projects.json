@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "ubisoft",
+    "title": "Ubisoft",
+    "role": "Design",
+    "period": "—",
+    "domain": "Gaming & digital products",
+    "thumbnail": "/images/projects/logo-ubisoft.png",
+    "documentUrl": "/documents/UBISOFT.pdf",
+    "documentLabel": "View Ubisoft experience summary (PDF)"
+  },
+  {
+    "slug": "transavia",
+    "title": "Transavia",
+    "role": "Design",
+    "period": "—",
+    "domain": "Travel & aviation",
+    "documentUrl": "/documents/Transavia.pdf",
+    "documentLabel": "View Transavia experience summary (PDF)"
+  },
+  {
+    "slug": "viamapa",
+    "title": "ViaMapa",
+    "role": "Design",
+    "period": "—",
+    "domain": "Digital products",
+    "documentUrl": "/documents/Presentation-ViaMapa.pdf",
+    "documentLabel": "View ViaMapa presentation (PDF)"
+  },
+  {
+    "slug": "entrepreneurial",
+    "title": "Entrepreneurial work",
+    "role": "—",
+    "period": "—",
+    "domain": "Various",
+    "documentUrl": "/documents/Projet-entrepreneurial.pdf",
+    "documentLabel": "View entrepreneurial project summary (PDF)"
+  },
+  {
+    "slug": "cinabre-paris",
+    "title": "Cinabre Paris",
+    "role": "—",
+    "period": "—",
+    "domain": "Creative",
+    "documentUrl": "/documents/Cinabre-paris.com.pdf",
+    "documentLabel": "View Cinabre Paris reference (PDF)"
+  }
+]

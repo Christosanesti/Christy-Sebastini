@@ -1,74 +1,52 @@
 /**
- * Project data for list and detail pages (Story 2.1, 2.2, 2.3).
- * Single source of truth; camelCase. Real content from PRD Assets inventory.
- * Assets: place PDFs in public/documents/, logos in public/images/projects/ (see README).
+ * Project data loader for list and detail pages (Story 4.2).
+ * Single source of truth: content/projects.json.
+ * Read at build/request time in server context only.
  */
 
-export interface Project {
-  slug: string;
-  title: string;
-  thumbnail?: string;
-  role?: string;
-  period?: string;
-  domain?: string;
-  /** Optional link to project document (e.g. PDF); descriptive label for accessibility */
-  documentUrl?: string;
-  documentLabel?: string;
-}
+import { readFileSync } from "fs";
+import path from "path";
+import { projectsSchema, type Project } from "@/lib/schemas/project";
 
-const projects: Project[] = [
-  {
-    slug: "ubisoft",
-    title: "Ubisoft",
-    role: "Design",
-    period: "—",
-    domain: "Gaming & digital products",
-    thumbnail: "/images/projects/logo-ubisoft.png",
-    documentUrl: "/documents/UBISOFT.pdf",
-    documentLabel: "View Ubisoft experience summary (PDF)",
-  },
-  {
-    slug: "transavia",
-    title: "Transavia",
-    role: "Design",
-    period: "—",
-    domain: "Travel & aviation",
-    documentUrl: "/documents/Transavia.pdf",
-    documentLabel: "View Transavia experience summary (PDF)",
-  },
-  {
-    slug: "viamapa",
-    title: "ViaMapa",
-    role: "Design",
-    period: "—",
-    domain: "Digital products",
-    documentUrl: "/documents/Presentation-ViaMapa.pdf",
-    documentLabel: "View ViaMapa presentation (PDF)",
-  },
-  {
-    slug: "entrepreneurial",
-    title: "Entrepreneurial work",
-    role: "—",
-    period: "—",
-    domain: "Various",
-    documentUrl: "/documents/Projet-entrepreneurial.pdf",
-    documentLabel: "View entrepreneurial project summary (PDF)",
-  },
-  {
-    slug: "cinabre-paris",
-    title: "Cinabre Paris",
-    role: "—",
-    period: "—",
-    domain: "Creative",
-    documentUrl: "/documents/Cinabre-paris.com.pdf",
-    documentLabel: "View Cinabre Paris reference (PDF)",
-  },
-];
+const PROJECTS_PATH = path.join(process.cwd(), "content", "projects.json");
 
+export type { Project } from "@/lib/schemas/project";
+
+/**
+ * Load all projects from content/projects.json.
+ * Server-only; call from Server Components or server context.
+ * @throws Error with safe message if file is missing or content is invalid
+ */
 export function getProjects(): Project[] {
-  return projects;
+  try {
+    const raw = readFileSync(PROJECTS_PATH, "utf-8");
+    const parsed: unknown = JSON.parse(raw);
+    const result = projectsSchema.safeParse(parsed);
+    if (!result.success) {
+      const first = result.error.flatten().fieldErrors;
+      const msg = Object.entries(first)
+        .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : v}`)
+        .join("; ");
+      throw new Error(`Invalid projects content: ${msg}`);
+    }
+    return result.data;
+  } catch (err) {
+    if (err instanceof SyntaxError) {
+      throw new Error("Projects file is not valid JSON.");
+    }
+    if (err instanceof Error && err.message.startsWith("Invalid projects content:")) {
+      throw err;
+    }
+    if (err instanceof Error && "code" in err && (err as NodeJS.ErrnoException).code === "ENOENT") {
+      throw new Error("Projects content file not found. Add content/projects.json.");
+    }
+    throw new Error("Failed to load projects content.");
+  }
 }
 
+/**
+ * Get a single project by slug. Returns undefined if not found.
+ */
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
+  return getProjects().find((p) => p.slug === slug);
 }

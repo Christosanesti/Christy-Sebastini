@@ -4,6 +4,8 @@ import {
   RecommendationBlock,
   type RecommendationBlockProps,
 } from "@/components/sections/RecommendationBlock";
+import { ProjectDocumentLink } from "@/components/sections/ProjectDocumentLink";
+import { attestations } from "@/lib/attestations";
 
 export const metadata: Metadata = buildMetadata({
   title: "Recommendations",
@@ -73,6 +75,33 @@ export default function Recommendations() {
           ))}
         </ul>
       )}
+
+      {attestations.length > 0 ? (
+        <section
+          className="mt-12 sm:mt-16"
+          aria-labelledby="attestations-heading"
+        >
+          <h2
+            id="attestations-heading"
+            className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+          >
+            Attestations &amp; official documents
+          </h2>
+          <p className="mt-2 text-muted-foreground">
+            Credentials and attestations you can view or download.
+          </p>
+          <ul className="mt-4 flex flex-col gap-3" role="list">
+            {attestations.map((att) => (
+              <li key={att.path}>
+                <ProjectDocumentLink
+                  documentUrl={att.path}
+                  documentLabel={att.label}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </section>
   );
 }

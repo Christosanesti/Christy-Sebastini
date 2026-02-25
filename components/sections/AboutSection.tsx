@@ -1,4 +1,10 @@
-export function AboutSection() {
+import type { Profile } from "@/lib/profile";
+
+interface AboutSectionProps {
+  profile: Profile;
+}
+
+export function AboutSection({ profile }: AboutSectionProps) {
   return (
     <section
       className="mx-auto max-w-3xl px-4 py-[var(--section-gap)] sm:px-6 sm:py-24"
@@ -8,38 +14,31 @@ export function AboutSection() {
         id="about-heading"
         className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
       >
-        About Christy
+        {profile.heading}
       </h1>
       <p className="mt-3 text-lg text-muted-foreground sm:text-xl">
-        Designer and creative professional with a focus on thoughtful digital
-        experiences and user-centred outcomes.
+        {profile.intro}
       </p>
 
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
-        Experience
+        {profile.experience.title}
       </h2>
       <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
-        Years of experience across digital design, brand identity, and
-        product interfaces. Work spans e‑commerce, editorial, and
-        product-led projects with an emphasis on clarity and craft.
+        {profile.experience.paragraph}
       </p>
 
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
-        Sectors
+        {profile.sectors.title}
       </h2>
       <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
-        Retail, energy and sustainability, food and nutrition, and
-        B2B digital products. Comfortable in regulated and
-        multi-stakeholder environments.
+        {profile.sectors.paragraph}
       </p>
 
       <h2 className="mt-10 text-xl font-semibold text-foreground sm:mt-12 sm:text-2xl">
-        Professional positioning
+        {profile.positioning.title}
       </h2>
       <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
-        Positions design as a bridge between user needs and business
-        goals. Advocates for accessible, performant, and maintainable
-        digital experiences aligned with brand and product strategy.
+        {profile.positioning.paragraph}
       </p>
     </section>
   );

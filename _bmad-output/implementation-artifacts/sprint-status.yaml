@@ -60,12 +60,12 @@ development_status:
   epic-3: in-progress
   3-1-recommendations-trust-section-or-page-structure: done
   3-2-at-least-one-recommendation-in-context-eg-anne-claire-petitcol: done
-  3-3-attestations-and-official-documents-linked-or-embedded: backlog
+  3-3-attestations-and-official-documents-linked-or-embedded: done
   epic-3-retrospective: optional
 
-  epic-4: backlog
-  4-1-structured-content-for-profile-and-about: backlog
-  4-2-structured-content-for-projects: backlog
+  epic-4: in-progress
+  4-1-structured-content-for-profile-and-about: done
+  4-2-structured-content-for-projects: review
   4-3-structured-content-for-recommendations-and-contact-info: backlog
   4-4-update-process-and-consistency-documentation: backlog
   epic-4-retrospective: optional

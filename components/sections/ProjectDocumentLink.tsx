@@ -9,30 +9,46 @@ interface ProjectDocumentLinkProps {
   documentLabel: string;
 }
 
+type Availability = "checking" | "available" | "unavailable";
+
 /**
  * Renders a link to a project document (e.g. PDF) with fallback when the file is missing (AC#2).
+ * Uses checking state to avoid flashing link before HEAD resolves (code-review fix).
  */
 export function ProjectDocumentLink({
   documentUrl,
   documentLabel,
 }: ProjectDocumentLinkProps) {
-  const [available, setAvailable] = useState(true);
+  const [status, setStatus] = useState<Availability>("checking");
 
   useEffect(() => {
     let cancelled = false;
     fetch(documentUrl, { method: "HEAD" })
       .then((res) => {
-        if (!cancelled && !res.ok) setAvailable(false);
+        if (!cancelled) setStatus(res.ok ? "available" : "unavailable");
       })
       .catch(() => {
-        if (!cancelled) setAvailable(false);
+        if (!cancelled) setStatus("unavailable");
       });
     return () => {
       cancelled = true;
     };
   }, [documentUrl]);
 
-  if (!available) {
+  if (status === "checking") {
+    return (
+      <span
+        className="inline-flex items-center gap-2 rounded-md border border-input bg-muted/50 px-4 py-2 text-sm text-muted-foreground"
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <FileText className="size-4 shrink-0 animate-pulse" aria-hidden />
+        <span>Checking…</span>
+      </span>
+    );
+  }
+
+  if (status === "unavailable") {
     return (
       <p className="inline-flex items-center gap-2 rounded-md border border-dashed border-muted-foreground/30 bg-muted/50 px-4 py-2 text-sm text-muted-foreground">
         <FileText className="size-4 shrink-0" aria-hidden />
