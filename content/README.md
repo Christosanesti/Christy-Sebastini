@@ -38,6 +38,6 @@ Structured site copy lives here. Edit these files and redeploy to update the sit
 ## Update process (how to update and redeploy)
 
 1. **Edit the relevant file** under `content/` (e.g. `content/profile.json`, `content/projects.json`, `content/recommendations.json`, `content/contact.json`).
-2. **Validate JSON** if needed (e.g. paste into a JSON validator or run a lint script) so the build does not fail.
+2. **Validate JSON** if needed (e.g. paste into a JSON validator) so the build does not fail.
 3. **Commit and push** your changes.
 4. **Deploy** or trigger a build (e.g. `bun run build` then deploy; or push to a branch that triggers your host’s deployment). The site will reflect the change in the correct sections after the next build.
